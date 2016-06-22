@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Threading;
@@ -10,21 +11,26 @@ using System.Windows.Forms;
 using AForge.Imaging.Filters;
 using mshtml;
 using Tesseract;
+using Timer = System.Windows.Forms.Timer;
 
 namespace RecogCaptcha
 { 
 	public partial class FormWeb : Form
 	{
 		private List<string> _lstWord;
+		private bool _flagIni;
+		private bool _elemPrenotaFirstTime;
 
 		public FormWeb()
 		{
 			InitializeComponent();
 			_lstWord = new List<string>();
+			_flagIni = true;
+			_elemPrenotaFirstTime = true;
             webBrowser.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(webBrowser_DocumentCompleted);
 
-			//btnGetLogin_Click(null, null);
-			btnCaptcha04_Click(null, null);
+			btnGetLogin_Click(null, null);
+			//btnCaptcha04_Click(null, null);
 		}
 
 
@@ -50,20 +56,12 @@ namespace RecogCaptcha
 			//request.ContentType = "application/x-www-form-urlencoded";
 			request.Method = "GET";
 			request.Accept = "text/html";
-
-			// execute the request
-			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-			//foreach (Cookie cook in response.Cookies)
-			//{
-			//	txtResult.Text = cook.Name + " - " + cook.Value + "<br>";
-			//}
-
-			//string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
-			//webBrowser.DocumentText = content;
 		}
 
 		private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
+			txtUrlResp.Text = webBrowser.Document != null ? (webBrowser.Document.Url?.ToString() ?? string.Empty) : string.Empty;
+
 			SetLog("Completo");
 
 			var doc = webBrowser.Document;
@@ -86,60 +84,261 @@ namespace RecogCaptcha
 
 		private void ClickEventHandler(object Sender, HtmlElementEventArgs e)
 		{
-			SetLog("Clicou");
+			//SetLog("Clicou");
 		}
 
 		private void FillForm()
 		{
-			if (webBrowser.Document != null)
+			if (webBrowser.Document?.Url != null)
 			{
-				if (webBrowser.Document.Url != null)
+				var urlWebBrowser = webBrowser.Document.Url;
+
+				#region [ ViewState ]
+
+				var elemViewState = webBrowser.Document.GetElementById("__VIEWSTATE");
+				if (elemViewState != null)
 				{
-					var urlWebBrowser = webBrowser.Document.Url;
+					if (_flagIni)
+						txtViewState01.Text = elemViewState.GetAttribute("value");
+					else
+						txtViewState02.Text = elemViewState.GetAttribute("value");
+				}
 
-					#region [ Login ]
+				var elemViewValidation = webBrowser.Document.GetElementById("__EVENTVALIDATION");
+				if (elemViewValidation != null)
+				{
+					if (_flagIni)
+						txtValidation01.Text = elemViewValidation.GetAttribute("value");
+					else
+						txtValidation02.Text = elemViewValidation.GetAttribute("value");
+				}
 
-					if (urlWebBrowser.AbsolutePath.IndexOf("login", StringComparison.Ordinal) > -1 || urlWebBrowser.LocalPath.IndexOf("login", StringComparison.Ordinal) > -1)
+
+				#endregion [ ViewState ]
+
+				#region [ Login ]
+
+				if (urlWebBrowser.AbsolutePath.IndexOf("login", StringComparison.Ordinal) > -1 || urlWebBrowser.LocalPath.IndexOf("login", StringComparison.Ordinal) > -1)
+				{
+					#region [ Login 01 ]
+
+					HtmlElement elemBtnLogin = webBrowser.Document.GetElementById("BtnLogin");
+					if (elemBtnLogin != null)
 					{
-						#region [ Login 01 ]
+						SetState();
 
-						HtmlElement elemBtnLogin = webBrowser.Document.GetElementById("BtnLogin");
-						if (elemBtnLogin != null)
-						{
-							elemBtnLogin.InvokeMember("click");
-							SetLog("Login 01 ativado");
-						}
+						elemBtnLogin.InvokeMember("click");
+						SetLog("Login 01 ativado");
+						return;
+					}
 
-						#endregion
+					#endregion
 
-						#region [ Login 02 ]
+					#region [ Login 02 ]
 
-						var elemUserName = webBrowser.Document.GetElementById("UserName");
-						if (elemUserName != null)
-						{
-							elemUserName.InnerText = txtLogin.Text;
-						}
+					var elemUserName = webBrowser.Document.GetElementById("UserName");
+					if (elemUserName != null)
+					{
+						elemUserName.InnerText = txtLogin.Text;
+					}
 
-						var elemPsw = webBrowser.Document.GetElementById("Password");
-						if (elemPsw != null)
-						{
-							elemPsw.InnerText = txtPsw.Text;
-						}
+					var elemPsw = webBrowser.Document.GetElementById("Password");
+					if (elemPsw != null)
+					{
+						elemPsw.InnerText = txtPsw.Text;
+					}
 
+					if(ckCaptcha.Checked)
 						btnGetCaptcha_Click(null, null);
 
-						var elemBtnConfermaL = webBrowser.Document.GetElementById("BtnConfermaL");
-						if (elemBtnConfermaL != null)
-						{
-							//elemBtnConfermaL.InvokeMember("click");
-							SetLog("Login 02 ativado");
-						}
-
-						#endregion
+					var elemBtnConfermaL = webBrowser.Document.GetElementById("BtnConfermaL");
+					if (elemBtnConfermaL != null)
+					{
+						//elemBtnConfermaL.InvokeMember("click");
+						SetLog("Login 02 ativado");
 					}
 
 					#endregion
 				}
+
+				#endregion [ Login ]
+
+				#region [ Prenota 01 ]
+
+				var elemPrenota = webBrowser.Document.GetElementById("ctl00_repFunzioni_ctl00_btnMenuItem");
+				if (elemPrenota != null && _elemPrenotaFirstTime)
+				{
+					elemPrenota.InvokeMember("click");
+					SetLog("Prenota 01");
+					_elemPrenotaFirstTime = false;
+                    return;
+				}
+
+				#endregion [ Prenota 01 ]
+
+				#region [ Prenota 02 - Calendar / Confirma ]
+
+				if (urlWebBrowser.AbsolutePath.IndexOf("acc_Prenota", StringComparison.Ordinal) > -1 || urlWebBrowser.LocalPath.IndexOf("acc_Prenota", StringComparison.Ordinal) > -1)
+				{
+					#region [ 03 - Prenota Calendar Confirma ]
+
+					var elemCalendarConferma = webBrowser.Document.GetElementById("ctl00_ContentPlaceHolder1_acc_Calendario1_repFasce_ctl01_btnConferma");
+					if (elemCalendarConferma != null)
+					{
+						elemCalendarConferma.InvokeMember("click");
+						SetLog("Prenota 02 - Calendar Confirma");
+						return;
+					}
+
+					#endregion [ 03 - Prenota Calendar Confirma ]
+
+					#region [ 02 - Prenota Calendar ]
+
+					var elemCalendar = webBrowser.Document.GetElementById("ctl00_ContentPlaceHolder1_acc_Calendario1_myCalendario1");
+					if (elemCalendar != null)
+					{
+						InitTimerCheckCalendar();
+						return;
+					}
+
+					#endregion [ 02 - Prenota Calendar ]
+
+					#region [ 01 - Prenota ]
+
+					var elemPrenotaContinua = webBrowser.Document.GetElementById("ctl00_ContentPlaceHolder1_acc_datiAddizionali1_btnContinua");
+					if (elemPrenotaContinua != null)
+					{
+						elemPrenotaContinua.InvokeMember("click");
+						SetLog("Prenota 02 - Legalizzazione Continua");
+						return;
+					}
+
+					#endregion [ 01 - Prenota ]
+
+					#region [ 01 - Prenota ]
+
+					var elemPrenotaLegalizzazione = webBrowser.Document.GetElementById("ctl00_ContentPlaceHolder1_rpServizi_ctl04_btnNomeServizio");
+					if (elemPrenotaLegalizzazione != null)
+					{
+						elemPrenotaLegalizzazione.InvokeMember("click");
+						SetLog("Prenota 02 - Legalizzazione");
+					}
+
+					#endregion [ 01 - Prenota ]
+				}
+
+
+				#endregion [ Prenota 02 - Calendar / Confirma ]
+
+				_flagIni = false;
+			}
+		}
+
+		#region [ CheckCalendar ]
+
+		private void btnRefresh_Click(object sender, EventArgs e)
+		{
+			webBrowser.Refresh();
+		}
+
+		private void btnStartLoop_Click(object sender, EventArgs e)
+		{
+			var elemCalendar = webBrowser.Document?.GetElementById("ctl00_ContentPlaceHolder1_acc_Calendario1_myCalendario1");
+			if (elemCalendar != null)
+			{
+				InitTimerCheckCalendar();
+			}
+		}
+		private void btnStop_Click(object sender, EventArgs e)
+		{
+			_timer.Stop();
+			_timer.Enabled = false;
+			lbLoopOnline.Text = "OFF";
+			lbLoopOnline.ForeColor = Color.Red;
+		}
+
+		private Timer _timer;
+		public void InitTimerCheckCalendar()
+		{
+			if (_timer != null && _timer.Enabled) return;
+
+			_timer = new Timer();
+			_timer.Tick += new EventHandler(CheckCalendarLoop);
+			_timer.Interval = Convert.ToInt32(numStep.Value * 1000); // in miliseconds
+			_timer.Enabled = true;
+			_timer.Start();
+			lbLoopOnline.Text = "ON";
+			lbLoopOnline.ForeColor = Color.DarkGreen;
+        }
+
+		private void CheckCalendarLoop(object sender, EventArgs e)
+		{
+			if (!CheckCalendar())
+			{
+				webBrowser.GoBack();
+				//webBrowser.Refresh(WebBrowserRefreshOption.Normal);
+			}
+		}
+
+		private bool CheckCalendar()
+		{
+			SetLog("Prenota 02 - Start Calendar");
+			var found = false;
+
+			HtmlElement elemOpenDate = null;
+
+			foreach (var item in webBrowser.Document.GetElementsByTagName("input").Cast<HtmlElement>().Where(item => item.OuterHtml.Contains("pulsanteCalendario")))
+			{
+				if (item.GetAttribute("type").Equals("submit")
+						&& item.GetAttribute("name").IndexOf("ctl00$ContentPlaceHolder1$acc_Calendario1$myCalendario1") == -1
+						&& item.GetAttribute("name").IndexOf("ctl00$ContentPlaceHolder1$acc_Calendario1$myCalendario1") == -1
+				)
+				{
+					item.InvokeMember("Click");
+					elemOpenDate = item;
+					SetLog("Prenota 02 - Input found");
+					break;
+				}
+			}
+
+			if (elemOpenDate == null)
+			{
+				foreach (var item in webBrowser.Document.GetElementsByTagName("td").Cast<HtmlElement>().Where(item => item.OuterHtml.Contains("calendarCellOpen")))
+				{
+					foreach (var childItem in item.Children.Cast<HtmlElement>().Where(childItem => childItem.TagName == "input"))
+					{
+						childItem.InvokeMember("Click");
+						elemOpenDate = childItem;
+						SetLog("Prenota 02 - Open Input found");
+						break;
+					}
+					break;
+				}
+			}
+			if (elemOpenDate != null)
+				found = true;
+
+			return found;
+		}
+
+		#endregion [ CheckCalendar ]
+
+		private void SetState()
+		{
+			if (!_flagIni) return;
+
+			var elemViewState = webBrowser.Document?.GetElementById("__VIEWSTATE");
+			if (elemViewState != null)
+			{
+				if (!string.IsNullOrEmpty(txtViewState01.Text))
+					elemViewState.SetAttribute("value", txtViewState01.Text);
+			}
+
+			var elemViewValidation = webBrowser.Document?.GetElementById("__EVENTVALIDATION");
+			if (elemViewValidation != null)
+			{
+				if (!string.IsNullOrEmpty(txtValidation01.Text))
+					elemViewValidation.SetAttribute("value", txtValidation01.Text);
 			}
 		}
 
@@ -242,6 +441,5 @@ namespace RecogCaptcha
 			}
 			return container;
 		}
-
 	}
 }

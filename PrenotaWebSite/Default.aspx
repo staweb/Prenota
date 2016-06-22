@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="it" xml:lang="it" xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Prenota OnLine, accesso al sistema.
+</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><link rel="Stylesheet" type="text/css" href="App_Themes/acc_Accesso.css" /><link rel="Stylesheet" type="text/css" href="App_Themes/acc_Common.css" />
+    <!--[if IE 7]>
+      <link rel="Stylesheet" type="text/css" href="App_Themes/acc_Explorer7.css" />  
+    <![endif]-->
+</head>
+
+<body>
+    <form method="post" action="Login.aspx?cidsede=100001&amp;returnUrl=%2f%2f" id="form1">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTg5NzM2MTU5OA8WAh4GaWRzZWRlBQYxMDAwMDEWAgIDD2QWDAIBDxYCHgRUZXh0BSdDb25zb2xhdG8gR2VuZXJhbGUgZCdJdGFsaWEgYSBTYW4gUGFvbG9kAgUPFgIeC18hSXRlbUNvdW50AgIWBGYPZBYCAgEPDxYGHgdUb29sVGlwBQhJdGFsaWFubx8BBQhJdGFsaWFubx4PQ29tbWFuZEFyZ3VtZW50BQExZGQCAQ9kFgICAQ8PFgYfAwUTUG9ydHVndWVzZSAoQnJhemlsKR8BBRNQb3J0dWd1ZXNlIChCcmF6aWwpHwQFATVkZAIHD2QWCgIBDw8WAh8BBRVOb21lIFV0ZW50ZSAoRS1tYWlsKTpkZAIFDw8WAh8BBQlQYXNzd29yZDpkZAIJDw8WAh8BBRNDb2RpY2UgZGkgdmVyaWZpY2E6ZGQCDQ8PFgIeCEltYWdlVXJsBSNjYXB0Y2hhL2RlZmF1bHQuYXNweD9wb3M9MiZ2ZXJzPTE2N2RkAg8PDxYCHwEFGkhvIGRpbWVudGljYXRvIGxhIHBhc3N3b3JkZGQCCQ9kFgQCAQ8PFgIfAQUaUmVnaXN0cmF6aW9uZSBudW92byB1dGVudGVkZAIDDw8WAh8BBRxMb2dpbiB1dGVudGUgZ2nDoCByZWdpc3RyYXRvZGQCCw9kFgZmD2QWBAIBD2QWRgIBDxYCHwEFGlJlZ2lzdHJhemlvbmUgbnVvdm8gdXRlbnRlZAIDDw8WAh8BBUVUdXR0aSBpIGRhdGkgc29ubyBvYmJsaWdhdG9yaSBhaSBmaW5pIGRlbGxhIHJlZ2lzdHJhemlvbmUgYWwgc2lzdGVtYS5kZAIFDw8WAh4KSGVhZGVyVGV4dAUlU2kgc29ubyB2ZXJpZmljYXRpIGkgc2VndWVudGkgZXJyb3JpOmRkAgcPDxYCHwEFBE5vbWVkZAIKDw8WAh4MRXJyb3JNZXNzYWdlBRhOb21lOiBjYW1wbyBvYmJsaWdhdG9yaW9kZAIMDw8WAh8BBQdDb2dub21lZGQCDw8PFgIfBwUbQ29nbm9tZTogY2FtcG8gb2JibGlnYXRvcmlvZGQCEQ8PFgIfAQUFU2Vzc29kZAITDxBkEBUCAU0BRhUCAW0BZhQrAwJnZxYBZmQCFQ8PFgIfAQUIVGVsZWZvbm9kZAIZDw8WAh8HBRtUZWxlZm9ubyBjYW1wbyBvYmJsaWdhdG9yaW9kZAIbDw8WAh8BBRxFLW1haWwgKGVzLiBub21lQGVzZW1waW8uaXQpZGQCHw8PFgIfBwU+RS1tYWlsIChlcy4gbm9tZUBlc2VtcGlvLml0KTogaW5zZXJpcmUgaWwgdmFsb3JlIGNvcnJldHRhbWVudGVkZAIhDw8WAh8HBRpFLW1haWw6IGNhbXBvIG9iYmxpZ2F0b3Jpb2RkAiMPDxYCHwEFJUNvbmZlcm1hIEUtbWFpbCAoZXMuIG5vbWVAZXNlbXBpby5pdClkZAInDw8WAh8HBSZHbGkgaW5kaXJpenppIGUtbWFpbCBkZXZvbm8gY29pbmNpZGVyZWRkAikPDxYCHwcFOUNvbmZlcm1hIEUtbWFpbCAoZXMuIG5vbWVAZXNlbXBpby5pdCk6IGNhbXBvIG9iYmxpZ2F0b3Jpb2RkAisPDxYCHwEFHERhdGEgZGkgbmFzY2l0YSAoZ2cvTU0vYWFhYSlkZAItDxBkZBYBZmQCLw8QZGQWAWZkAjEPEGQPFnVmAgECAgIDAgQCBQIGAgcCCAIJAgoCCwIMAg0CDgIPAhACEQISAhMCFAIVAhYCFwIYAhkCGgIbAhwCHQIeAh8CIAIhAiICIwIkAiUCJgInAigCKQIqAisCLAItAi4CLwIwAjECMgIzAjQCNQI2AjcCOAI5AjoCOwI8Aj0CPgI/AkACQQJCAkMCRAJFAkYCRwJIAkkCSgJLAkwCTQJOAk8CUAJRAlICUwJUAlUCVgJXAlgCWQJaAlsCXAJdAl4CXwJgAmECYgJjAmQCZQJmAmcCaAJpAmoCawJsAm0CbgJvAnACcQJyAnMCdBZ1EAUEMTkwMAUEMTkwMGcQBQQxOTAxBQQxOTAxZxAFBDE5MDIFBDE5MDJnEAUEMTkwMwUEMTkwM2cQBQQxOTA0BQQxOTA0ZxAFBDE5MDUFBDE5MDVnEAUEMTkwNgUEMTkwNmcQBQQxOTA3BQQxOTA3ZxAFBDE5MDgFBDE5MDhnEAUEMTkwOQUEMTkwOWcQBQQxOTEwBQQxOTEwZxAFBDE5MTEFBDE5MTFnEAUEMTkxMgUEMTkxMmcQBQQxOTEzBQQxOTEzZxAFBDE5MTQFBDE5MTRnEAUEMTkxNQUEMTkxNWcQBQQxOTE2BQQxOTE2ZxAFBDE5MTcFBDE5MTdnEAUEMTkxOAUEMTkxOGcQBQQxOTE5BQQxOTE5ZxAFBDE5MjAFBDE5MjBnEAUEMTkyMQUEMTkyMWcQBQQxOTIyBQQxOTIyZxAFBDE5MjMFBDE5MjNnEAUEMTkyNAUEMTkyNGcQBQQxOTI1BQQxOTI1ZxAFBDE5MjYFBDE5MjZnEAUEMTkyNwUEMTkyN2cQBQQxOTI4BQQxOTI4ZxAFBDE5MjkFBDE5MjlnEAUEMTkzMAUEMTkzMGcQBQQxOTMxBQQxOTMxZxAFBDE5MzIFBDE5MzJnEAUEMTkzMwUEMTkzM2cQBQQxOTM0BQQxOTM0ZxAFBDE5MzUFBDE5MzVnEAUEMTkzNgUEMTkzNmcQBQQxOTM3BQQxOTM3ZxAFBDE5MzgFBDE5MzhnEAUEMTkzOQUEMTkzOWcQBQQxOTQwBQQxOTQwZxAFBDE5NDEFBDE5NDFnEAUEMTk0MgUEMTk0MmcQBQQxOTQzBQQxOTQzZxAFBDE5NDQFBDE5NDRnEAUEMTk0NQUEMTk0NWcQBQQxOTQ2BQQxOTQ2ZxAFBDE5NDcFBDE5NDdnEAUEMTk0OAUEMTk0OGcQBQQxOTQ5BQQxOTQ5ZxAFBDE5NTAFBDE5NTBnEAUEMTk1MQUEMTk1MWcQBQQxOTUyBQQxOTUyZxAFBDE5NTMFBDE5NTNnEAUEMTk1NAUEMTk1NGcQBQQxOTU1BQQxOTU1ZxAFBDE5NTYFBDE5NTZnEAUEMTk1NwUEMTk1N2cQBQQxOTU4BQQxOTU4ZxAFBDE5NTkFBDE5NTlnEAUEMTk2MAUEMTk2MGcQBQQxOTYxBQQxOTYxZxAFBDE5NjIFBDE5NjJnEAUEMTk2MwUEMTk2M2cQBQQxOTY0BQQxOTY0ZxAFBDE5NjUFBDE5NjVnEAUEMTk2NgUEMTk2NmcQBQQxOTY3BQQxOTY3ZxAFBDE5NjgFBDE5NjhnEAUEMTk2OQUEMTk2OWcQBQQxOTcwBQQxOTcwZxAFBDE5NzEFBDE5NzFnEAUEMTk3MgUEMTk3MmcQBQQxOTczBQQxOTczZxAFBDE5NzQFBDE5NzRnEAUEMTk3NQUEMTk3NWcQBQQxOTc2BQQxOTc2ZxAFBDE5NzcFBDE5NzdnEAUEMTk3OAUEMTk3OGcQBQQxOTc5BQQxOTc5ZxAFBDE5ODAFBDE5ODBnEAUEMTk4MQUEMTk4MWcQBQQxOTgyBQQxOTgyZxAFBDE5ODMFBDE5ODNnEAUEMTk4NAUEMTk4NGcQBQQxOTg1BQQxOTg1ZxAFBDE5ODYFBDE5ODZnEAUEMTk4NwUEMTk4N2cQBQQxOTg4BQQxOTg4ZxAFBDE5ODkFBDE5ODlnEAUEMTk5MAUEMTk5MGcQBQQxOTkxBQQxOTkxZxAFBDE5OTIFBDE5OTJnEAUEMTk5MwUEMTk5M2cQBQQxOTk0BQQxOTk0ZxAFBDE5OTUFBDE5OTVnEAUEMTk5NgUEMTk5NmcQBQQxOTk3BQQxOTk3ZxAFBDE5OTgFBDE5OThnEAUEMTk5OQUEMTk5OWcQBQQyMDAwBQQyMDAwZxAFBDIwMDEFBDIwMDFnEAUEMjAwMgUEMjAwMmcQBQQyMDAzBQQyMDAzZxAFBDIwMDQFBDIwMDRnEAUEMjAwNQUEMjAwNWcQBQQyMDA2BQQyMDA2ZxAFBDIwMDcFBDIwMDdnEAUEMjAwOAUEMjAwOGcQBQQyMDA5BQQyMDA5ZxAFBDIwMTAFBDIwMTBnEAUEMjAxMQUEMjAxMWcQBQQyMDEyBQQyMDEyZxAFBDIwMTMFBDIwMTNnEAUEMjAxNAUEMjAxNGcQBQQyMDE1BQQyMDE1ZxAFBDIwMTYFBDIwMTZnFgFmZAIzDw8WAh8HBT5EYXRhIGRpIG5hc2NpdGEgKGdnL01NL2FhYWEpOiBpbnNlcmlyZSBpbCB2YWxvcmUgY29ycmV0dGFtZW50ZWRkAjUPDxYCHwEFEEx1b2dvIGRpIG5hc2NpdGFkZAI5Dw8WAh8HBSRMdW9nbyBkaSBuYXNjaXRhOiBjYW1wbyBvYmJsaWdhdG9yaW9kZAI7Dw8WAh8BBWdDb211bmUgZGkgcmVzaWRlbnphIDwvYnI+KENvbXVuZSBlc3Rlcm8gZGkgcmVzaWRlbnphIHNlIGxhIG5hemlvbmUgZGkgcmVzaWRlbnphIMOoIGRpdmVyc2EgZGFsbCdJdGFsaWEpZGQCPw8PFgIfBwV7Q29tdW5lIGRpIHJlc2lkZW56YSA8L2JyPihDb211bmUgZXN0ZXJvIGRpIHJlc2lkZW56YSBzZSBsYSBuYXppb25lIGRpIHJlc2lkZW56YSDDqCBkaXZlcnNhIGRhbGwnSXRhbGlhKTogY2FtcG8gb2JibGlnYXRvcmlvZGQCQQ8PFgIfAQUMQ2l0dGFkaW5hbnphZGQCRA8PFgIfBwUgQ2l0dGFkaW5hbnphOiBjYW1wbyBvYmJsaWdhdG9yaW9kZAJGD2QWDgIBDw8WAh8BBQhQYXNzd29yZGRkAgQPDxYCHwcFHFBhc3N3b3JkOiBjYW1wbyBvYmJsaWdhdG9yaW9kZAIGDw8WAh8HBUZJbnNlcmlyZSBhbG1lbm8gOCBjYXJhdHRlcmkgY29uIGxldHRlcmUgbWFpdXNjb2xlLCBtaW51c2NvbGUgZSBudW1lcmkuZGQCCA8PFgIfAQURQ29uZmVybWEgUGFzc3dvcmRkZAILDw8WAh8HBSVDb25mZXJtYSBQYXNzd29yZDogY2FtcG8gb2JibGlnYXRvcmlvZGQCDQ8PFgIfBwVGSW5zZXJpcmUgYWxtZW5vIDggY2FyYXR0ZXJpIGNvbiBsZXR0ZXJlIG1haXVzY29sZSwgbWludXNjb2xlIGUgbnVtZXJpLmRkAg8PDxYCHwcFKExhIHBhc3N3b3JkIGUgbGEgY29uZmVybWEgbm9uIGNvaW5jaWRvbm9kZAJIDw8WAh8BBTpJbnNlcmlyZSBpbCBjb2RpY2UgZGkgdmVyaWZpY2EgdmlzdWFsaXp6YXRvIG5lbGwnaW1tYWdpbmU6ZGQCTA8PFgIfBQUdY2FwdGNoYS9kZWZhdWx0LmFzcHg/dmVycz0xNjdkZAJODw8WBB8BBVlBdHRlbnppb25lISBJIGRhdGkgaW5zZXJpdGkgaW4gZmFzZSBkaSByZWdpc3RyYXppb25lIG5vbiBwb3RyYW5ubyBwacO5IGVzc2VyZSBtb2RpZmljYXRpLh4HVmlzaWJsZWdkZAJQDw8WAh8BBQdBbm51bGxhZGQCUg8PFgIfAQUIQ29uZmVybWFkZAJUDxYCHwEF0AU8cCBzdHlsZT0iZm9udC1zaXplOjEycHg7bGluZS1oZWlnaHQ6MTAwJTt3aWR0aDo5OSU7dGV4dC1hbGlnbjpqdXN0aWZ5Ij5BaSBzZW5zaSBkZWxs4oCZYXJ0LjEzIGRlbCBDb2RpY2UgaW4gbWF0ZXJpYSBkaSBkYXRpIHBlcnNvbmFsaSBzaSBpbmZvcm1hIGNoZSBpbCB0cmF0dGFtZW50byBkZWkgZGF0aSBwZXJzb25hbGkgZm9ybml0aSBwZXIgYWNjZWRlcmUgYWkgc2Vydml6aSBvbi1saW5lIMOoIGZpbmFsaXp6YXRvIHVuaWNhbWVudGUgYWxsYSBjb3JyZXR0YSBlc2VjdXppb25lIGRlaSBjb21waXRpIGlzdGl0dXppb25hbGkgbmVsbGUgc2luZ29sZSBtYXRlcmllIGNoZSBkaXNjaXBsaW5hbm8gaSBzZXJ2aXppIGVkIGF2dmVycsOgIGNvbiBs4oCZdXRpbGl6em8gZGkgcHJvY2VkdXJlIGFuY2hlIGluZm9ybWF0aXp6YXRlLCBuZWkgbW9kaSBlIG5laSBsaW1pdGkgbmVjZXNzYXJpIHBlciBwZXJzZWd1aXJlIGxlIHByZWRldHRlIGZpbmFsaXTDoC4gSWwgY29uZmVyaW1lbnRvIGRlaSBkYXRpIMOoIG9iYmxpZ2F0b3JpbyBwZXIgcG90ZXIgY29uY2x1ZGVyZSBwb3NpdGl2YW1lbnRlIGlsIHByb2NlZGltZW50byBhbW1pbmlzdHJhdGl2byBlIGxhIGxvcm8gbWFuY2F0YSBpbmRpY2F6aW9uZSBjb21wb3J0YSBxdWluZGkgbOKAmWltcG9zc2liaWxpdMOgIGRpIGJlbmVmaWNpYXJlIGRlbCBzZXJ2aXppbyBvdnZlcm8gZGVsbGEgcHJlc3RhemlvbmUgZmluYWxlLjwvcD5kAgMPZBYEAgEPFgIfAQUnQ29uc29sYXRvIEdlbmVyYWxlIGQnSXRhbGlhIGEgU2FuIFBhb2xvZAIDDxYCHwEFxw5TdSBxdWVzdG8gYXBwbGljYXRpdm8gc2kgcHJlbm90YW5vIGkgc2Vydml6aTogDQpQQVNTQVBPUlRJLCBMRUdBTElaWkFaSU9OSSwgQ0lUVEFESU5BTlpBIFBFUiBNQVRSSU1PTklPIGUgVklTVEkuIA0KDQpQZXIgcG90ZXIgYWNjZWRlcmUgYWxsJ2FwcGxpY2F0aXZvIGUgcHJlbm90YXJlIGxhIHZpc2l0YSwgw6ggbmVjZXNzYXJpbyBjcmVhcnNpIHVuICJhY2NvdW50IiBjbGljY2FuZG8gc3UgInJlZ2lzdHJhdGkiIGUgcHJvY2VkZXJlIGFsbCdhdHRpdmF6aW9uZSBkZWwgY29udG8gc2VndWVuZG8gbGUgaXN0cnV6aW9uaSBmb3JuaXRlLiBMZWdnZXJlIGF0dGVudGFtZW50ZSBsZSBpc3RydXppb25pIGUgbm9ybWUgZGkgdXNvIGRlbGwnYXBwbGljYXRpdm8gZSBsZSBpc3RydXppb25pIHN1bCBzZXJ2aXppbyBkZXNpZGVyYXRvIChQYXNzYXBvcnRpLCBMZWdhbGl6emF6aW9uaSBvIFZpc3RpKSBwZXIgcHJlc2VudGFyZSBjb3JyZXR0YW1lbnRlIGxhIHJlbGF0aXZhIGRvbWFuZGEuPC9icj48L2JyPg0KDQpTZSBzaSBzY2VnbGllIGRpIGNvbnRpbnVhcmUgc2lnbmlmaWNhIGNoZSB0dXR0ZSBsZSBpc3RydXppb25pLCBjb21wcmVzZSBsZSByZWdvbGUgZGkgdXNvIGRlbGwnYXBwbGljYXRpdm8sIHNvbm8gc3RhdGUgbGV0dGUsIGNvbXByZXNlIGUgYWNjZXR0YXRlLjwvYnI+PC9icj4NCg0KTGUgcHJlbm90YXppb25pIGVmZmV0dHVhdGUgc29ubyBzb2dnZXR0ZSBhIGNvbmZlcm1hLiBJbCBzaXN0ZW1hIGludmllcsOgIGF1dG9tYXRpY2FtZW50ZSB1bmEgbWFpbCAxMCBnaW9ybmkgcHJpbWEgcGVyIHJpY29yZGFyZSBsYSBuZWNlc3NpdMOgIGRpIGNvbmZlcm1hcmUgbCdhcHB1bnRhbWVudG8gYWxtZW5vIDMgZ2lvcm5pIHByaW1hLiBHbGkgYXBwdW50YW1lbnRpIG5vbiBjb25mZXJtYXRpIHZlcnJhbm5vIGNhbmNlbGxhdGkuDQoNCkwnQWdlbmRhIGRlbGxlIHByZW5vdGF6aW9uaSBub24gc3VwZXJhIDUgc2V0dGltYW5lLiBJbnV0aWxlIHBlcnRhbnRvIGNlcmNhcmUgZGF0YSBvbHRyZSB1biBtZXNlIGRhbGxhIGRhdGEgaW4gY3VpIHNpIGVudHJhLjwvYnI+PC9icj4NCg0KSWwgY2FsZW5kYXJpbyBwZXIgaSBTZXJ2aXppIENvbnNvbGFyaSBjaGUgbmVjZXNzaXRhbm8gcHJlbm90YXppb25lIG9ubGluZSAoUEFTU0FQT1JUSSwgVklTVEksIExFR0FMSVpaQVpJT05JIEUgQ0lUVEFESU5BTlpBIFBFUiBNQVRSSU1PTklPKSDDqCBpbmNyZW1lbnRhdG8gZ2lvcm5hbG1lbnRlIChhbGxlIG9yZSAyMjowMCBkaSBSb21hKSBjb24gbnVvdmEgZGF0YSBlIGZhc2NlIG9yYXJpZSBkaXNwb25pYmlsaSwgc2VtcHJlIGEgZGlzdGFuemEgZGkgY2EuIHVuIG1lc2UuIA0KDQoNCkFUVEVOWklPTkU6DQpQUklNQSBESSBQUkVOREVSRSBBUFBVTlRBTUVOVE8gUEVSIElMIFJJTEFTQ0lPIERFTCBQQVNTQVBPUlRPIEUnIElORElTUEVOU0FCSUxFIENIRSBMQSBTSVRVQVpJT05FIEFOQUdSQUZJQ0EgREVMTCdJTlRFUkVTU0FUTyBQUkVTU08gSUwgQ09OU09MQVRPIFNJQSBBR0dJT1JOQVRBOiBOQVNDSVRFIERJIEZJR0xJLCBNQVRSSU1PTkksIERJVk9SWkkgRSBDQU1CSSBESSBJTkRJUklaWk8gREVWT05PIEVTU0VSRSBTVEFURSBQUkVWSUFNRU5URSBDT01VTklDQVRJIEFMIENPTlNPTEFUTyBTRUNPTkRPIExFIE1PREFMSVRBJyBJTkRJQ0FURSBTVUwgU0lUTyBJTlRFUk5FVC4gSU4gQ0FTTyBDT05UUkFSSU8gSUwgR0lPUk5PIERFTEwnQVBQVU5UQU1FTlRPIE5PTiBTSSBQT1RSQScgREFSRSBDT1JTTyBBTCBTRVJWSVpJTyBFIEwnSU5URVJFU1NBVE8gRE9WUkEnIFBSRU5ERVJFIFVOIE5VT1ZPIEFQUFVOVEFNRU5UTyBET1BPIEFWRVJFIFJFR09MQVJJWlpBVE8gTEEgUFJPUFJJQSBTSVRVQVpJT05FISAgDQpkAgMPZBYCAgEPZBYgAgEPFgIfAQUUUGFzc3dvcmQgZGltZW50aWNhdGFkAgMPDxYCHwEFUVR1dHRpIGkgZGF0aSBzb25vIG9iYmxpZ2F0b3JpIGFpIGZpbmkgZGVsIHJlcGVyaW1lbnRvIGRlbGxhIHBhc3N3b3JkIGRpbWVudGljYXRhLmRkAgUPDxYCHwYFJVNpIHNvbm8gdmVyaWZpY2F0aSBpIHNlZ3VlbnRpIGVycm9yaTpkZAIHDw8WAh8BBQROb21lZGQCCw8PFgIfBwUYTm9tZTogY2FtcG8gb2JibGlnYXRvcmlvZGQCDQ8PFgIfAQUHQ29nbm9tZWRkAhEPDxYCHwcFG0NvZ25vbWU6IGNhbXBvIG9iYmxpZ2F0b3Jpb2RkAhMPDxYCHwEFHERhdGEgZGkgbmFzY2l0YSAoZ2cvTU0vYWFhYSlkZAIVDxBkZBYBZmQCFw8QZGQWAWZkAhkPEGQPFnVmAgECAgIDAgQCBQIGAgcCCAIJAgoCCwIMAg0CDgIPAhACEQISAhMCFAIVAhYCFwIYAhkCGgIbAhwCHQIeAh8CIAIhAiICIwIkAiUCJgInAigCKQIqAisCLAItAi4CLwIwAjECMgIzAjQCNQI2AjcCOAI5AjoCOwI8Aj0CPgI/AkACQQJCAkMCRAJFAkYCRwJIAkkCSgJLAkwCTQJOAk8CUAJRAlICUwJUAlUCVgJXAlgCWQJaAlsCXAJdAl4CXwJgAmECYgJjAmQCZQJmAmcCaAJpAmoCawJsAm0CbgJvAnACcQJyAnMCdBZ1EAUEMTkwMAUEMTkwMGcQBQQxOTAxBQQxOTAxZxAFBDE5MDIFBDE5MDJnEAUEMTkwMwUEMTkwM2cQBQQxOTA0BQQxOTA0ZxAFBDE5MDUFBDE5MDVnEAUEMTkwNgUEMTkwNmcQBQQxOTA3BQQxOTA3ZxAFBDE5MDgFBDE5MDhnEAUEMTkwOQUEMTkwOWcQBQQxOTEwBQQxOTEwZxAFBDE5MTEFBDE5MTFnEAUEMTkxMgUEMTkxMmcQBQQxOTEzBQQxOTEzZxAFBDE5MTQFBDE5MTRnEAUEMTkxNQUEMTkxNWcQBQQxOTE2BQQxOTE2ZxAFBDE5MTcFBDE5MTdnEAUEMTkxOAUEMTkxOGcQBQQxOTE5BQQxOTE5ZxAFBDE5MjAFBDE5MjBnEAUEMTkyMQUEMTkyMWcQBQQxOTIyBQQxOTIyZxAFBDE5MjMFBDE5MjNnEAUEMTkyNAUEMTkyNGcQBQQxOTI1BQQxOTI1ZxAFBDE5MjYFBDE5MjZnEAUEMTkyNwUEMTkyN2cQBQQxOTI4BQQxOTI4ZxAFBDE5MjkFBDE5MjlnEAUEMTkzMAUEMTkzMGcQBQQxOTMxBQQxOTMxZxAFBDE5MzIFBDE5MzJnEAUEMTkzMwUEMTkzM2cQBQQxOTM0BQQxOTM0ZxAFBDE5MzUFBDE5MzVnEAUEMTkzNgUEMTkzNmcQBQQxOTM3BQQxOTM3ZxAFBDE5MzgFBDE5MzhnEAUEMTkzOQUEMTkzOWcQBQQxOTQwBQQxOTQwZxAFBDE5NDEFBDE5NDFnEAUEMTk0MgUEMTk0MmcQBQQxOTQzBQQxOTQzZxAFBDE5NDQFBDE5NDRnEAUEMTk0NQUEMTk0NWcQBQQxOTQ2BQQxOTQ2ZxAFBDE5NDcFBDE5NDdnEAUEMTk0OAUEMTk0OGcQBQQxOTQ5BQQxOTQ5ZxAFBDE5NTAFBDE5NTBnEAUEMTk1MQUEMTk1MWcQBQQxOTUyBQQxOTUyZxAFBDE5NTMFBDE5NTNnEAUEMTk1NAUEMTk1NGcQBQQxOTU1BQQxOTU1ZxAFBDE5NTYFBDE5NTZnEAUEMTk1NwUEMTk1N2cQBQQxOTU4BQQxOTU4ZxAFBDE5NTkFBDE5NTlnEAUEMTk2MAUEMTk2MGcQBQQxOTYxBQQxOTYxZxAFBDE5NjIFBDE5NjJnEAUEMTk2MwUEMTk2M2cQBQQxOTY0BQQxOTY0ZxAFBDE5NjUFBDE5NjVnEAUEMTk2NgUEMTk2NmcQBQQxOTY3BQQxOTY3ZxAFBDE5NjgFBDE5NjhnEAUEMTk2OQUEMTk2OWcQBQQxOTcwBQQxOTcwZxAFBDE5NzEFBDE5NzFnEAUEMTk3MgUEMTk3MmcQBQQxOTczBQQxOTczZxAFBDE5NzQFBDE5NzRnEAUEMTk3NQUEMTk3NWcQBQQxOTc2BQQxOTc2ZxAFBDE5NzcFBDE5NzdnEAUEMTk3OAUEMTk3OGcQBQQxOTc5BQQxOTc5ZxAFBDE5ODAFBDE5ODBnEAUEMTk4MQUEMTk4MWcQBQQxOTgyBQQxOTgyZxAFBDE5ODMFBDE5ODNnEAUEMTk4NAUEMTk4NGcQBQQxOTg1BQQxOTg1ZxAFBDE5ODYFBDE5ODZnEAUEMTk4NwUEMTk4N2cQBQQxOTg4BQQxOTg4ZxAFBDE5ODkFBDE5ODlnEAUEMTk5MAUEMTk5MGcQBQQxOTkxBQQxOTkxZxAFBDE5OTIFBDE5OTJnEAUEMTk5MwUEMTk5M2cQBQQxOTk0BQQxOTk0ZxAFBDE5OTUFBDE5OTVnEAUEMTk5NgUEMTk5NmcQBQQxOTk3BQQxOTk3ZxAFBDE5OTgFBDE5OThnEAUEMTk5OQUEMTk5OWcQBQQyMDAwBQQyMDAwZxAFBDIwMDEFBDIwMDFnEAUEMjAwMgUEMjAwMmcQBQQyMDAzBQQyMDAzZxAFBDIwMDQFBDIwMDRnEAUEMjAwNQUEMjAwNWcQBQQyMDA2BQQyMDA2ZxAFBDIwMDcFBDIwMDdnEAUEMjAwOAUEMjAwOGcQBQQyMDA5BQQyMDA5ZxAFBDIwMTAFBDIwMTBnEAUEMjAxMQUEMjAxMWcQBQQyMDEyBQQyMDEyZxAFBDIwMTMFBDIwMTNnEAUEMjAxNAUEMjAxNGcQBQQyMDE1BQQyMDE1ZxAFBDIwMTYFBDIwMTZnFgFmZAIbDw8WAh8HBT5EYXRhIGRpIG5hc2NpdGEgKGdnL01NL2FhYWEpOiBpbnNlcmlyZSBpbCB2YWxvcmUgY29ycmV0dGFtZW50ZWRkAiEPDxYCHwcFKEUtbWFpbDogaW5zZXJpcmUgaWwgdmFsb3JlIGNvcnJldHRhbWVudGVkZAIjDw8WAh8HBRpFLW1haWw6IGNhbXBvIG9iYmxpZ2F0b3Jpb2RkAiUPDxYCHwEFB0FubnVsbGFkZAInDw8WAh8BBRdSaWNoaWVkaSBudW92YSBwYXNzd29yZGRkAgQPZBYCAgEPDxYCHwEFQFBlciByYWdpb25pIGRpIHNpY3VyZXp6YSBzZWkgc3RhdG8gZGlzY29ubmVzc28gZGEgcXVlc3RvIGFjY291bnRkZAINDw8WAh4LTmF2aWdhdGVVcmwFT2h0dHA6Ly93d3cuZXN0ZXJpLml0L01BRS9JVC9NaW5pc3Rlcm8vTGFSZXRlRGlwbG9tYXRpY2EvQW1iYXNjaWF0ZS8/Q29kPTI2MzAyMDNkFgJmDw8WAh8BBTg8c3Ryb25nPkNvbnNvbGF0byBHZW5lcmFsZSBkJ0l0YWxpYSBhIFNhbiBQYW9sbzwvc3Ryb25nPmRkGAEFCk11bHRpVmlldzEPD2QCBGSN/G9oZvqmQQ/DnrdzklXzWQ55pg==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=n1bEeOjeo0mDGHa5phH46muiPPtJTJ-FxcRlWM9_mfaV1od5mI0RPL_vXY03mESaZIjigsvIEwuuJpY7xFQh0It24xc1&amp;t=635588660026805809" type="text/javascript"></script>
+
+
+<script src="/WebResource.axd?d=rIr75L9SST2nTy3KEg8PEdp_kFmwH4t21R_ox6FfXWp3lkEyhru1wdt-w1RuRFLZRlaRqKQjs-SOT2FWrvcCIA3e2WU1&amp;t=635588660026805809" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C2EE9ABB" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWBgLxy+HkBQKO09q9CAKO09alCgKoppGlCQLi44eGDAK36aSyDINMNpevQ6A10mjahFRh01OlrxIv" />
+</div>
+        <div id="wrapper">
+            <div id="header">
+                <div class="left_header">
+                    <img src="images/left_corner.png" alt="" title="" />
+                </div>
+                <div class="right_header">
+                    <img src="images/right_corner.png" alt="" title="" />
+                </div>
+                <div class="center_header">
+                    <img id="img_logo" src="images/nuovologo.gif" alt="Servizio di prenotazione OnLine, SICC Ufficio Primo del Ministero Affari Esteri" />
+                </div>
+                <div id="sede">
+                    <h1>
+                        Consolato Generale d'Italia a San Paolo
+                    </h1>
+                </div>
+                <div id="boxLingue">
+                    <h1 id="segliLaLingua" class="hidden">Scegli la lingua</h1>
+                    <ul id="bandiere" style="text-align: right">
+                        
+                                <li>
+                                    <input type="submit" name="repLanguages$ctl00$cmdLingua" value="Italiano" id="repLanguages_ctl00_cmdLingua" tabindex="7" title="Italiano" class="linkButton grassetto" />
+                                </li>
+                            
+                                <li>
+                                    <input type="submit" name="repLanguages$ctl01$cmdLingua" value="Portuguese (Brazil)" id="repLanguages_ctl01_cmdLingua" tabindex="7" title="Portuguese (Brazil)" class="linkButton grassetto" />
+                                </li>
+                            
+                    </ul>
+                </div>
+                <div id="login">
+                    
+                </div>
+                <ul class="hidden">
+                    <li><a href="#rightcolumn" accesskey="c" title="Vai al contenuto di questa pagina">Contenuto
+                    della pagina</a> (accesskey: c)</li>
+                </ul>
+                <div id="button">
+                    <div id="pan_button">
+	
+                        <input type="submit" name="BtnRegistrati" value="Registrazione nuovo utente" id="BtnRegistrati" tabindex="6" title="Visualizza schermata di registrazione" class="inputButton" />
+                        <br />
+                        <input type="submit" name="BtnLogin" value="Login utente gi� registrato" id="BtnLogin" tabindex="7" title="Login utente gi� registrato" class="inputButton" />
+                    
+</div>
+                </div>
+            </div>
+
+            <div id="contenitore">
+                
+                        <div id="fail" style="text-align: center">
+                            <br />
+                            <br />
+                            <span id="FailureText">Per ragioni di sicurezza sei stato disconnesso da questo account</span>
+                            <br />
+                            <br />
+                            <input type="submit" name="BtnLoginKo" value="Indietro" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;BtnLoginKo&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" id="BtnLoginKo" tabindex="1" title="Vai alla pagina di Login" class="inputButton" />
+                        </div>
+                    
+            </div>
+        </div>
+        <div id="footer">
+            <a id="hlContact" href="http://www.esteri.it/MAE/IT/Ministero/LaReteDiplomatica/Ambasciate/?Cod=2630203" target="_blank"><span id="lblFooter"><strong>Consolato Generale d'Italia a San Paolo</strong></span></a>
+            <br />
+            <br />
+            <a href="InfoCookie.aspx" style="font-size: 11px; color: #999;">Cookie Policy</a>
+            <br />
+            
+            <span style="font-size: 11px; color: #999;">Software realizzato da Ministero degli Affari Esteri e della Cooperazione Internazionale - D.G.A.I. Ufficio IV</span>
+        </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+WebForm_AutoFocus('UserName');//]]>
+</script>
+</form>
+</body>
+</html>

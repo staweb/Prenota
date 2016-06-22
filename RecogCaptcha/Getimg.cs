@@ -135,16 +135,16 @@ namespace RecogCaptcha
 			cor.Red = new AForge.IntRange(200, 255);
 			cor.Green = new AForge.IntRange(200, 255);
 
-			FiltersSequence seq = new FiltersSequence(gs);
-			var filteredImage = seq.Apply(image);
+			//FiltersSequence seq = new FiltersSequence(gs);
+			//var filteredImage = seq.Apply(image);
 
-			var image2 = AForge.Imaging.Image.Clone(image, PixelFormat.Format8bppIndexed);
-			AForge.Imaging.Image.SetGrayscalePalette(image2);
+			//var image2 = AForge.Imaging.Image.Clone(image, PixelFormat.Format8bppIndexed);
+			//AForge.Imaging.Image.SetGrayscalePalette(image2);
 
 
-			SISThreshold filter = new SISThreshold();
-			filter.ApplyInPlace(image2);
-			return filteredImage;
+			//SISThreshold filter = new SISThreshold();
+			//filter.ApplyInPlace(image2);
+			return image;
 		}
 
 		public static Bitmap ApplyFilters04(Image img)

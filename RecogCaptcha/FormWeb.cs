@@ -60,7 +60,7 @@ namespace RecogCaptcha
 
 		private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
-			txtUrlResp.Text = webBrowser.Document != null ? (webBrowser.Document.Url?.ToString() ?? string.Empty) : string.Empty;
+			txtUrlResp.Text = webBrowser.Document != null && webBrowser.Document.Url != null ? webBrowser.Document.Url.ToString() : string.Empty;
 
 			SetLog("Completo");
 
@@ -89,7 +89,7 @@ namespace RecogCaptcha
 
 		private void FillForm()
 		{
-			if (webBrowser.Document?.Url != null)
+			if (webBrowser.Document != null && webBrowser.Document.Url != null)
 			{
 				var urlWebBrowser = webBrowser.Document.Url;
 
@@ -243,7 +243,7 @@ namespace RecogCaptcha
 
 		private void btnStartLoop_Click(object sender, EventArgs e)
 		{
-			var elemCalendar = webBrowser.Document?.GetElementById("ctl00_ContentPlaceHolder1_acc_Calendario1_myCalendario1");
+			var elemCalendar = webBrowser.Document != null ? webBrowser.Document.GetElementById("ctl00_ContentPlaceHolder1_acc_Calendario1_myCalendario1") : null;
 			if (elemCalendar != null)
 			{
 				InitTimerCheckCalendar();
@@ -283,10 +283,6 @@ namespace RecogCaptcha
 		private bool CheckCalendar()
 		{
 			SetLog("Prenota 02 - Start Calendar");
-			var found = false;
-
-			HtmlElement elemOpenDate = null;
-
 			foreach (var item in webBrowser.Document.GetElementsByTagName("input").Cast<HtmlElement>().Where(item => item.OuterHtml.Contains("pulsanteCalendario")))
 			{
 				if (item.GetAttribute("type").Equals("submit")
@@ -295,46 +291,38 @@ namespace RecogCaptcha
 				)
 				{
 					item.InvokeMember("Click");
-					elemOpenDate = item;
 					SetLog("Prenota 02 - Input found");
-					break;
+
+                    return true;
 				}
 			}
 
-			if (elemOpenDate == null)
+			foreach (var item in webBrowser.Document.GetElementsByTagName("td").Cast<HtmlElement>().Where(item => item.OuterHtml.Contains("calendarCellOpen")))
 			{
-				foreach (var item in webBrowser.Document.GetElementsByTagName("td").Cast<HtmlElement>().Where(item => item.OuterHtml.Contains("calendarCellOpen")))
+				foreach (var childItem in item.Children.Cast<HtmlElement>().Where(childItem => childItem.TagName == "input"))
 				{
-					foreach (var childItem in item.Children.Cast<HtmlElement>().Where(childItem => childItem.TagName == "input"))
-					{
-						childItem.InvokeMember("Click");
-						elemOpenDate = childItem;
-						SetLog("Prenota 02 - Open Input found");
-						break;
-					}
-					break;
+					childItem.InvokeMember("Click");
+					SetLog("Prenota 02 - Open Input found");				    
+                    return true;
 				}
 			}
-			if (elemOpenDate != null)
-				found = true;
-
-			return found;
+			return false;
 		}
 
 		#endregion [ CheckCalendar ]
 
 		private void SetState()
 		{
-			if (!_flagIni) return;
+			if (!_flagIni || webBrowser.Document == null) return;
 
-			var elemViewState = webBrowser.Document?.GetElementById("__VIEWSTATE");
+			var elemViewState = webBrowser.Document.GetElementById("__VIEWSTATE");
 			if (elemViewState != null)
 			{
 				if (!string.IsNullOrEmpty(txtViewState01.Text))
 					elemViewState.SetAttribute("value", txtViewState01.Text);
 			}
 
-			var elemViewValidation = webBrowser.Document?.GetElementById("__EVENTVALIDATION");
+			var elemViewValidation = webBrowser.Document.GetElementById("__EVENTVALIDATION");
 			if (elemViewValidation != null)
 			{
 				if (!string.IsNullOrEmpty(txtValidation01.Text))
@@ -400,7 +388,9 @@ namespace RecogCaptcha
 
 		private void btnGetCaptcha_Click(object sender, EventArgs e)
 		{
-			var elemCaptcha = webBrowser.Document?.GetElementById("captchaLogin");
+            if (webBrowser.Document == null) return;
+
+			var elemCaptcha = webBrowser.Document.GetElementById("captchaLogin");
 			if (elemCaptcha == null) return;
 
 			ProcessGetCaptcha(Getimg.CopyImageAlt(webBrowser, elemCaptcha));

@@ -93,6 +93,8 @@ namespace RecogCaptcha
 			{
 				var urlWebBrowser = webBrowser.Document.Url;
 
+				var flLocal = (urlWebBrowser.AbsolutePath.IndexOf("login", StringComparison.Ordinal) > -1 || urlWebBrowser.LocalPath.IndexOf("login", StringComparison.Ordinal) > -1);
+
 				#region [ ViewState ]
 
 				var elemViewState = webBrowser.Document.GetElementById("__VIEWSTATE");
@@ -118,7 +120,7 @@ namespace RecogCaptcha
 
 				#region [ Login ]
 
-				if (urlWebBrowser.AbsolutePath.IndexOf("login", StringComparison.Ordinal) > -1 || urlWebBrowser.LocalPath.IndexOf("login", StringComparison.Ordinal) > -1)
+				if (flLocal || urlWebBrowser.AbsolutePath.IndexOf("login", StringComparison.Ordinal) > -1 || urlWebBrowser.LocalPath.IndexOf("login", StringComparison.Ordinal) > -1)
 				{
 					#region [ Login 01 ]
 
@@ -178,7 +180,7 @@ namespace RecogCaptcha
 
 				#region [ Prenota 02 - Calendar / Confirma ]
 
-				if (urlWebBrowser.AbsolutePath.IndexOf("acc_Prenota", StringComparison.Ordinal) > -1 || urlWebBrowser.LocalPath.IndexOf("acc_Prenota", StringComparison.Ordinal) > -1)
+				if (flLocal || urlWebBrowser.AbsolutePath.IndexOf("acc_Prenota", StringComparison.Ordinal) > -1 || urlWebBrowser.LocalPath.IndexOf("acc_Prenota", StringComparison.Ordinal) > -1)
 				{
 					#region [ 03 - Prenota Calendar Confirma ]
 
@@ -197,6 +199,7 @@ namespace RecogCaptcha
 					var elemCalendar = webBrowser.Document.GetElementById("ctl00_ContentPlaceHolder1_acc_Calendario1_myCalendario1");
 					if (elemCalendar != null)
 					{
+						_flCalendario = true;
 						InitTimerCheckCalendar();
 						return;
 					}
@@ -258,6 +261,7 @@ namespace RecogCaptcha
 		}
 
 		private Timer _timer;
+		private bool _flCalendario = false;
 		public void InitTimerCheckCalendar()
 		{
 			if (_timer != null && _timer.Enabled) return;
@@ -273,9 +277,10 @@ namespace RecogCaptcha
 
 		private void CheckCalendarLoop(object sender, EventArgs e)
 		{
-			if (!CheckCalendar())
+			if (!CheckCalendar() && _flCalendario)
 			{
-				webBrowser.GoBack();
+				_flCalendario = false;
+                webBrowser.GoBack();
 				//webBrowser.Refresh(WebBrowserRefreshOption.Normal);
 			}
 		}
@@ -286,13 +291,14 @@ namespace RecogCaptcha
 			foreach (var item in webBrowser.Document.GetElementsByTagName("input").Cast<HtmlElement>().Where(item => item.OuterHtml.Contains("pulsanteCalendario")))
 			{
 				if (item.GetAttribute("type").Equals("submit")
-						&& item.GetAttribute("name").IndexOf("ctl00$ContentPlaceHolder1$acc_Calendario1$myCalendario1") == -1
-						&& item.GetAttribute("name").IndexOf("ctl00$ContentPlaceHolder1$acc_Calendario1$myCalendario1") == -1
+						&& !item.GetAttribute("name").Equals("ctl00$ContentPlaceHolder1$acc_Calendario1$myCalendario1$ctl01")
+						&& !item.GetAttribute("name").Equals("ctl00$ContentPlaceHolder1$acc_Calendario1$myCalendario1$ctl03")
 				)
 				{
 					item.InvokeMember("Click");
 					SetLog("Prenota 02 - Input found");
 
+					btnStop_Click(null, null);
                     return true;
 				}
 			}
@@ -302,8 +308,9 @@ namespace RecogCaptcha
 				foreach (var childItem in item.Children.Cast<HtmlElement>().Where(childItem => childItem.TagName == "input"))
 				{
 					childItem.InvokeMember("Click");
-					SetLog("Prenota 02 - Open Input found");				    
-                    return true;
+					SetLog("Prenota 02 - Open Input found");
+					btnStop_Click(null, null);
+					return true;
 				}
 			}
 			return false;

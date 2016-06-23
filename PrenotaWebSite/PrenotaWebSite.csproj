@@ -75,8 +75,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="acc_Prenota.aspx" />
     <Content Include="acc_Prenota_01.aspx" />
-    <Content Include="acc_Prenota_02.aspx" />
     <Content Include="acc_Prenota_03.aspx" />
     <Content Include="acc_Prenota_04.aspx" />
     <Content Include="App_Themes\acc_Accesso.css" />
@@ -89,6 +89,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="acc_Prenota.aspx.cs">
+      <DependentUpon>acc_Prenota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="acc_Prenota.aspx.designer.cs">
+      <DependentUpon>acc_Prenota.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
